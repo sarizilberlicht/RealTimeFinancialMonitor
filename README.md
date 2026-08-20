@@ -5,7 +5,68 @@ A full-stack real-time financial transaction monitoring application built with A
 The project implements the required MVP while also demonstrating a distributed multi-instance architecture, shared storage, real-time synchronization, containerization, Kubernetes deployment, and enhanced UI behavior.
 
 ---
+## Quick Start
 
+### Docker Compose
+
+The fastest way to run the complete application:
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+```text
+http://localhost:5173
+```
+
+Redis is started automatically by Docker Compose.
+
+To stop the application:
+
+```bash
+docker compose down
+```
+
+### Kubernetes
+
+After deploying the Kubernetes manifests as described below, access the application locally using:
+
+```bash
+kubectl port-forward service/frontend-service 30173:80
+```
+
+Then open:
+
+```text
+http://localhost:30173
+```
+
+### Tests
+
+Backend:
+
+```bash
+dotnet test Backend.Tests
+```
+
+The Redis integration test requires Redis on `localhost:6379`. If needed:
+
+```bash
+docker run --name realtime-financial-test-redis -p 6379:6379 -d redis:7-alpine
+```
+
+Frontend:
+
+```bash
+cd Frontend
+npm test -- --run
+```
+
+Detailed setup, architecture, Docker, Redis, and Kubernetes instructions are provided below.
+
+---
 ## Features
 
 - Create financial transactions through a web form
