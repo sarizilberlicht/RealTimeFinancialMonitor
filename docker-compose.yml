@@ -1,0 +1,35 @@
+services:
+  backend-service:
+    build:
+      context: ./Backend
+
+    environment:
+      Distributed__Enabled: "true"
+      Redis__ConnectionString: redis:6379
+      Redis__TransactionsKey: transactions
+   
+    depends_on:
+      redis:
+       condition: service_healthy
+
+  frontend:
+    build:
+      context: ./Frontend
+      args:
+        VITE_API_BASE_URL: ""
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend-service
+
+
+  redis:
+    image: redis:7-alpine
+    
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 10

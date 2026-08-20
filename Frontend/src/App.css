@@ -1,0 +1,50 @@
+.app-shell {
+    min-height: 100vh;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.app-header p {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.app-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #374151;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background: #f3f4f6;
+}
+
+.nav-link.active {
+    background: #111827;
+    color: white;
+}
+
+.app-content {
+    padding: 32px;
+}

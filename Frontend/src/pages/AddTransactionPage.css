@@ -1,0 +1,64 @@
+.add-page {
+    display: flex;
+    justify-content: center;
+}
+
+.transaction-form {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.transaction-form h2 {
+    margin: 0;
+}
+
+.transaction-form p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field span {
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.primary-button {
+    border: none;
+    background: #111827;
+    color: white;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #374151;
+}
+
+.form-error {
+    color: #b91c1c;
+}
+
+.form-success {
+    color: #166534;
+}

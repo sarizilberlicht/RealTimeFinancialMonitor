@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+          image: realtime-financial-backend:final
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: Redis__ConnectionString
+              value: "redis-service:6379"
+
+            - name: Redis__TransactionsKey
+              value: "transactions"
+
+            - name: Distributed__Enabled
+              value: "true"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+
+spec:
+  selector:
+    app: backend
+
+  ports:
+    - port: 8080
+      targetPort: 8080

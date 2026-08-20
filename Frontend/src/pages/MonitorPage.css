@@ -1,0 +1,115 @@
+.monitor-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page-header h2 {
+    margin: 0;
+}
+
+.page-header p {
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    border: 1px solid #d1d5db;
+    background: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+    background: #f9fafb;
+}
+
+.filter-button.active {
+    background: #111827;
+    color: white;
+    border-color: #111827;
+}
+
+.table-container {
+    background: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions-table th {
+    background: #f9fafb;
+    font-size: 14px;
+}
+
+.transactions-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.status-badge:hover {
+    transform: scale(1.04);
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.transaction-row {
+    animation: transaction-enter 0.80s ease-out;
+}
+
+@keyframes transaction-enter {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
